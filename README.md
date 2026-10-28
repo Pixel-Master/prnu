@@ -87,7 +87,7 @@ model = ai_predictor.Model() # this model is saved in your python installation
 
 model.load():
 # Returns scaled AI probability between 0 and 1
-probability = model.predict("sample_image.png")
+probability = model.predict("sample_image.png", optimal_probability=0.97) # For the included model 0.97 is the optimal threshold
 print(f"AI Probability: {probability * 100:.2f}%")
 
 ```

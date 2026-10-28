@@ -16,7 +16,7 @@ file_path = '/.../../.png'
 
 model = ai_predictor.Model()
 model.load()
-print(model.predict(file_path))
+print(model.predict(file_path, optimal_probability=0.97))
 
 """
 
