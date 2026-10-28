@@ -80,15 +80,15 @@ Generally with a correlation score of 0.008 or higher a photo can be considered 
 Load the attached trained ResNet-18 model to predict the likelihood that a give image is AI-generated:
 
 ```python
-import ai_predictor
+import prnu.ai_predictor as ai_predictor
 
 # Initialize model instance
 model = ai_predictor.Model() # this model is saved in your python installation
 
-if model.load():
-    # Returns scaled AI probability between 0 and 1
-    probability = model.predict("sample_image.png")
-    print(f"AI Probability: {probability * 100:.2f}%")
+model.load():
+# Returns scaled AI probability between 0 and 1
+probability = model.predict("sample_image.png")
+print(f"AI Probability: {probability * 100:.2f}%")
 
 ```
 

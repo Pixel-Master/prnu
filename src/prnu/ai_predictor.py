@@ -10,7 +10,7 @@ http://www.gnu.org/licenses/gpl-3.0.html
 
 Usage example for predicting AI-probability of a given file:
 
-import ai_predictor
+import prnu.ai_predictor as ai_predictor
 
 file_path = '/.../../.png'
 

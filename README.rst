@@ -1,18 +1,21 @@
-
 PRNU Toolkit & AI Predictor
 ===========================
 
-A Python library for Photo-Response Non-Uniformity (PRNU) noise extraction, camera identification through fingerprint correlation and a ResNet-18-based AI image detector.
+A Python library for Photo-Response Non-Uniformity (PRNU) noise
+extraction, camera identification through fingerprint correlation and a
+ResNet-18-based AI image detector.
 
 Links
 -----
 
-Refer to the `interactive website <https://Pixel-Master.github.io/prnu>`_ as a usage example and the `repository <https://gihtub.com/Pixel-Master/prnu>`_
+Refer to the `interactive
+website <https://Pixel-Master.github.io/prnu>`__ as a usage example and
+the `repository <https://gihtub.com/Pixel-Master/prnu>`__
 
 Installation
 ------------
 
-.. code-block::
+::
 
    pip install prnu
 
@@ -20,11 +23,12 @@ Usage Examples
 --------------
 
 1. Extract visible noise
-^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-Extract PRNU noise from an image and scale subtle variance into a viewable 8-bit PNG image:
+Extract PRNU noise from an image and scale subtle variance into a
+viewable 8-bit PNG image:
 
-.. code-block:: python
+.. code:: python
 
    import prnu
 
@@ -40,13 +44,14 @@ Extract PRNU noise from an image and scale subtle variance into a viewable 8-bit
    # Save visual representation to disk
    extractor.write_to_file("visual_noise.png")
 
-
 2. Camera identification
-^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-Average the noise patterns from training photos taken by a single camera, compute an average reference fingerprint, and then test an unknown image:
+Average the noise patterns from training photos taken by a single
+camera, compute an average reference fingerprint, and then test an
+unknown image:
 
-.. code-block:: python
+.. code:: python
 
    import os
    import prnu
@@ -79,26 +84,26 @@ Average the noise patterns from training photos taken by a single camera, comput
    if score > 0.008:
        print("The test image likely originated from the target camera sensor.")
 
-
-Generally with a correlation score of 0.008 or higher a photo can be considered as being from the same camera
+Generally with a correlation score of 0.008 or higher a photo can be
+considered as being from the same camera
 
 3. AI Image Detection
-^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~
 
-Load the attached trained ResNet-18 model to predict the likelihood that a give image is AI-generated:
+Load the attached trained ResNet-18 model to predict the likelihood that
+a give image is AI-generated:
 
-.. code-block:: python
+.. code:: python
 
-   import ai_predictor
+   import prnu.ai_predictor as ai_predictor
 
    # Initialize model instance
    model = ai_predictor.Model() # this model is saved in your python installation
 
-   if model.load():
-       # Returns scaled AI probability between 0 and 1
-       probability = model.predict("sample_image.png")
-       print(f"AI Probability: {probability * 100:.2f}%")
-
+   model.load():
+   # Returns scaled AI probability between 0 and 1
+   probability = model.predict("sample_image.png")
+   print(f"AI Probability: {probability * 100:.2f}%")
 
 License
 -------
